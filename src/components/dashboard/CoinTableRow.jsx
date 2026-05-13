@@ -73,32 +73,32 @@ const CoinTableRow = React.memo(function CoinTableRow({ coin, currency, onSelect
       </td>
 
       {/* 1h % */}
-      <td className="py-4 px-3 text-right whitespace-nowrap">
+      <td className="py-4 px-3 text-right whitespace-nowrap hidden md:table-cell">
         {renderChange(priceChange1h)}
       </td>
 
       {/* 24h % */}
-      <td className="py-4 px-3 text-right whitespace-nowrap">
+      <td className="py-4 px-3 text-right whitespace-nowrap hidden md:table-cell">
         {renderChange(priceChange24h)}
       </td>
 
       {/* 7d % */}
-      <td className="py-4 px-3 text-right whitespace-nowrap">
+      <td className="py-4 px-3 text-right whitespace-nowrap hidden md:table-cell">
         {renderChange(priceChange7d)}
       </td>
 
       {/* 24h Volume */}
-      <td className="py-4 px-3 text-right whitespace-nowrap">
+      <td className="py-4 px-3 text-right whitespace-nowrap hidden md:table-cell">
         <span className="text-sm text-gray-700 dark:text-gray-300">{formatLargeNumber(coin.total_volume, currency)}</span>
       </td>
 
       {/* Market Cap */}
-      <td className="py-4 px-3 text-right whitespace-nowrap">
+      <td className="py-4 px-3 text-right whitespace-nowrap hidden md:table-cell">
         <span className="text-sm text-gray-700 dark:text-gray-300">{formatLargeNumber(coin.market_cap, currency)}</span>
       </td>
 
       {/* Last 7 Days Sparkline */}
-      <td className="py-4 px-3 text-right">
+      <td className="py-4 px-3 text-right hidden md:table-cell">
         <div className="inline-block">
           <SparklineChart data={coin.sparkline_in_7d?.price} isPositive={(priceChange7d ?? 0) >= 0} />
         </div>

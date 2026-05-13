@@ -23,7 +23,7 @@ export function formatCurrency(value, currency = 'usd', maxDecimals) {
   if (value === null || value === undefined) return '—';
 
   const config = CURRENCY_CONFIG[currency] || CURRENCY_CONFIG.usd;
-  
+
   // Auto-detect decimal places based on value magnitude
   let decimals = maxDecimals;
   if (decimals === undefined) {
@@ -121,7 +121,7 @@ export function formatFullDate(date) {
 export function timeAgo(date) {
   if (!date) return '';
   const seconds = Math.floor((new Date() - date) / 1000);
-  
+
   if (seconds < 5) return 'just now';
   if (seconds < 60) return `${seconds}s ago`;
   const minutes = Math.floor(seconds / 60);

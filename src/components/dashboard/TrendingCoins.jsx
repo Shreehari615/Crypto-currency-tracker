@@ -98,7 +98,7 @@ const TrendingCoins = React.memo(function TrendingCoins({ trending, loading, onS
           </button>
         </div>
       </div>
-      
+
       {/* Scrollable container with gradient fade edges */}
       <div className="relative">
         {/* Left fade */}
@@ -117,6 +117,7 @@ const TrendingCoins = React.memo(function TrendingCoins({ trending, loading, onS
           ref={scrollRef}
           className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 scroll-smooth"
         >
+          {/*trending.slice(0, 10) = 10 coins */}
           {trending.slice(0, 10).map((coin, index) => (
             <div
               key={coin.id || index}

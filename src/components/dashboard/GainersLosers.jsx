@@ -18,7 +18,7 @@ const GainersLosers = React.memo(function GainersLosers({ coins, currency, onSel
     // Filter coins that have valid 24h change data
     const validCoins = coins.filter(
       (c) => c.price_change_percentage_24h_in_currency !== null &&
-             c.price_change_percentage_24h_in_currency !== undefined
+        c.price_change_percentage_24h_in_currency !== undefined
     );
 
     const sorted = [...validCoins].sort(
@@ -114,9 +114,8 @@ const CoinMiniCard = React.memo(function CoinMiniCard({ coin, currency, type, on
           {formatCurrency(coin.current_price, currency)}
         </p>
         <p
-          className={`text-xs font-semibold ${
-            isPositive ? 'text-crypto-green' : 'text-crypto-red'
-          }`}
+          className={`text-xs font-semibold ${isPositive ? 'text-crypto-green' : 'text-crypto-red'
+            }`}
         >
           {isPositive ? '▲' : '▼'} {Math.abs(change).toFixed(2)}%
         </p>

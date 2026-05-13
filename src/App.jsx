@@ -6,7 +6,7 @@ import { useTrending } from './hooks/useTrending';
 import { useWatchlist } from './hooks/useWatchlist';
 import { useFearGreed } from './hooks/useFearGreed';
 import { usePortfolio } from './hooks/usePortfolio';
-import { BarChart3, Star, Wrench, Briefcase } from 'lucide-react';
+import { BarChart3, Star, Wrench, Briefcase, ChevronDown } from 'lucide-react';
 
 // Components
 import GlobalStatsBar from './components/dashboard/GlobalStatsBar';
@@ -126,13 +126,34 @@ function Dashboard() {
             </div>
           </div>
 
-          {/* Mobile Search */}
-          <div className="md:hidden mt-2.5">
-            <SearchBar onSearch={handleSearch} placeholder="Search coins..." />
+          {/* Mobile: Search + Tab Dropdown in one row */}
+          <div className="md:hidden mt-2.5 flex items-center gap-2">
+            <div className="flex-1 min-w-0">
+              <SearchBar onSearch={handleSearch} placeholder="Search coins..." />
+            </div>
+            <div className="relative flex-shrink-0">
+              <select
+                value={activeTab}
+                onChange={(e) => setActiveTab(e.target.value)}
+                className="appearance-none pl-3 pr-8 py-2 text-xs font-semibold rounded-xl 
+                           bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white 
+                           border border-gray-200 dark:border-gray-700 
+                           focus:outline-none focus:ring-2 focus:ring-indigo-500/50 
+                           cursor-pointer transition-colors"
+                aria-label="Navigate tabs"
+              >
+                {tabs.map((tab) => (
+                  <option key={tab.id} value={tab.id}>
+                    {tab.label}{tab.count > 0 ? ` (${tab.count})` : ''}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 pointer-events-none" />
+            </div>
           </div>
 
-          {/* Tab Navigation */}
-          <div className="flex items-center gap-1 mt-3 -mb-3 overflow-x-auto scrollbar-hide">
+          {/* Desktop: Horizontal Tabs */}
+          <div className="hidden md:flex items-center gap-1 mt-3 -mb-3 overflow-x-auto scrollbar-hide">
             {tabs.map((tab) => (
               <button
                 key={tab.id}

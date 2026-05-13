@@ -17,7 +17,7 @@ const ThemeContext = createContext();
 function getInitialTheme() {
   const saved = localStorage.getItem('crypto-dashboard-theme');
   if (saved === 'light' || saved === 'dark') return saved;
-  
+
   // Respect OS preference if no saved preference
   if (window.matchMedia('(prefers-color-scheme: light)').matches) {
     return 'light';

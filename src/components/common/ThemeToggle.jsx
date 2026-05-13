@@ -29,21 +29,19 @@ const ThemeToggle = React.memo(function ThemeToggle() {
       {/* Sun Icon (shown in dark mode — click to go light) */}
       <Sun
         size={20}
-        className={`transition-all duration-300 ${
-          isDark
-            ? 'text-amber-400 rotate-0 scale-100 opacity-100'
-            : 'text-amber-400 rotate-90 scale-0 opacity-0 absolute inset-0 m-auto'
-        }`}
+        className={`transition-all duration-300 ${isDark
+          ? 'text-amber-400 rotate-0 scale-100 opacity-100'
+          : 'text-amber-400 rotate-90 scale-0 opacity-0 absolute inset-0 m-auto'
+          }`}
       />
 
       {/* Moon Icon (shown in light mode — click to go dark) */}
       <Moon
         size={20}
-        className={`transition-all duration-300 ${
-          !isDark
-            ? 'text-indigo-600 rotate-0 scale-100 opacity-100'
-            : 'text-indigo-400 -rotate-90 scale-0 opacity-0 absolute inset-0 m-auto'
-        }`}
+        className={`transition-all duration-300 ${!isDark
+          ? 'text-indigo-600 rotate-0 scale-100 opacity-100'
+          : 'text-indigo-400 -rotate-90 scale-0 opacity-0 absolute inset-0 m-auto'
+          }`}
       />
     </button>
   );

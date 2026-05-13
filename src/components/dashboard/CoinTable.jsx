@@ -185,7 +185,7 @@ const CoinTable = React.memo(function CoinTable({
 
       {/* Scrollable table container — horizontal scroll shows all columns, Name stays frozen */}
       <div className="overflow-x-auto max-h-[70vh] overflow-y-auto">
-        <table className="w-full" style={{ minWidth: '1050px' }}>
+        <table className="w-full md:min-w-[1050px]">
           {/* Sticky header (top) */}
           <thead className="sticky top-0 z-20 bg-gray-50 dark:bg-surface-800 shadow-sm">
             <tr>
@@ -207,22 +207,22 @@ const CoinTable = React.memo(function CoinTable({
               <th className={sortableThClass} onClick={() => handleSort('price')}>
                 Price{renderSortIcon('price')}
               </th>
-              <th className={sortableThClass} onClick={() => handleSort('change1h')}>
+              <th className={`${sortableThClass} hidden md:table-cell`} onClick={() => handleSort('change1h')}>
                 1h{renderSortIcon('change1h')}
               </th>
-              <th className={sortableThClass} onClick={() => handleSort('change24h')}>
+              <th className={`${sortableThClass} hidden md:table-cell`} onClick={() => handleSort('change24h')}>
                 24h{renderSortIcon('change24h')}
               </th>
-              <th className={sortableThClass} onClick={() => handleSort('change7d')}>
+              <th className={`${sortableThClass} hidden md:table-cell`} onClick={() => handleSort('change7d')}>
                 7d{renderSortIcon('change7d')}
               </th>
-              <th className={sortableThClass} onClick={() => handleSort('volume')}>
+              <th className={`${sortableThClass} hidden md:table-cell`} onClick={() => handleSort('volume')}>
                 24h Volume{renderSortIcon('volume')}
               </th>
-              <th className={sortableThClass} onClick={() => handleSort('marketCap')}>
+              <th className={`${sortableThClass} hidden md:table-cell`} onClick={() => handleSort('marketCap')}>
                 Market Cap{renderSortIcon('marketCap')}
               </th>
-              <th className="py-3 px-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider whitespace-nowrap">
+              <th className="py-3 px-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider whitespace-nowrap hidden md:table-cell">
                 Last 7 Days
               </th>
             </tr>
